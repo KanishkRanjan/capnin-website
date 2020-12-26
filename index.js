@@ -1,8 +1,9 @@
 // importing module
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoSanitize = require('express-mongo-sanitize');
-const session = require('express-session')
+const session = require('express-session');
 
 // Init
 const app = express();
@@ -15,7 +16,7 @@ app.use(mongoSanitize());
 
 //connection to database 
 
-mongoose.connect('mongodb://localhost:27017/capnin',{ 
+mongoose.connect(`mongodb+srv://caspi:${process.env.DB_PASSWORD}@cluster0.wtmkx.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,{ 
     useNewUrlParser: true ,
     useUnifiedTopology: true,
     useCreateIndex: true
