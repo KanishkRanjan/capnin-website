@@ -16,7 +16,7 @@ app.use(mongoSanitize());
 
 //connection to database 
 
-mongoose.connect(`mongodb+srv://caspi:${process.env.DB_PASSWORD}@cluster0.wtmkx.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,{ 
+mongoose.connect(`mongodb://caspi:${process.env.DB_PASSWORD}@cluster0-shard-00-00.wtmkx.mongodb.net:27017,cluster0-shard-00-01.wtmkx.mongodb.net:27017,cluster0-shard-00-02.wtmkx.mongodb.net:27017/${process.env.DB_NAME}?ssl=true&replicaSet=atlas-ii8no4-shard-0&authSource=admin&retryWrites=true&w=majority`,{ 
     useNewUrlParser: true ,
     useUnifiedTopology: true,
     useCreateIndex: true
