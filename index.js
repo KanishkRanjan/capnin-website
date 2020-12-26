@@ -7,7 +7,7 @@ const session = require('express-session');
 
 // Init
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 //Middle wear
 
 app.use(express.urlencoded({extended: true}));
