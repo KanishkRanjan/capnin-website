@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product View</title>
+    <%- include('../__bootstrap.ejs') %>
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .product{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 90vw;
+            margin: 50px auto;
+            justify-content: center;
+        }
+    </style> 
+</head>
+<body>
+    <form action="/admin/view" method="post" class="input-group mb-3">
+        <input type="text" class="form-control" name="name" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="input-group-prepend">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </div>
+    </form>
+    </div>
+    <% if ( products.length == 0) { %>
+        <div class="error container mt-5" style="text-align: center;font-size: 16px;">
+            404 not found
+            <br>
+            No result not found <br>
+            <a href="/admin/view" style="color: #333333;text-decoration: underline;">Return back</a>
+        </div>
+    <% } else { %>
+     
+    <div class="ea"> 
+        <div class="product" >
+        <% products.forEach(product => { %> 
+            <div class="card mr-2 mb-2" style="width: 18rem;">
+                <img src="<%= product.image_url[0]%>" class="card-img-top" alt="..." style="max-height: 250px;max-width:100%;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.name %> </h5>
+                  <p class="card-text"><%= product.shortDescription%></p>
+                  <p class="card-text">
+                  <% product['productLinks'].forEach(link => { %>
+                    <%= link.website %>,
+                  <% }) %></p>
+                  <%=new Date(product.date).toDateString()%><br>    
+                  <a href="/admin/view/<%= product.name %>" class="btn btn-primary">View more</a>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+        <div class="seeMore"  style="text-align: center;width: 100vw;margin-bottom: 50px;">
+            <a id="seeMore" skiped="0">See More</a>
+        </div>
+    </div>
+    <% } %>
+    <script>
+        const seeMoreButton = document.getElementById("seeMore");
+        var skiped = 20
+        const xhttp = new XMLHttpRequest();
+        
+        seeMoreButton.addEventListener('click',()=>{
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    skiped+=20
+                    let response = JSON.parse(this.response);
+                    console.log(response);
+                    response.forEach(product => {
+                        let result = `<div class="card mr-2 mb-2" style="width: 18rem;"><img src="${product.image_url[0]}" class="card-img-top" alt="..." style="max-height: 250px;max-width:100%;"><div class="card-body"><h5 class="card-title">${product.name }</h5><p class="card-text">${ product.shortDescription}</p><p class="card-text">${product['productLinks'].forEach(link => link.website)}</p>${new Date(product.date).toDateString()}<br><a href="/admin/view/${ product.name }" class="btn btn-primary">View more</a></div></div>`;
+                        document.querySelector(".product").innerHTML += result;                         
+                    });
+                }
+            };
+            xhttp.open("POST", `?skip=${skiped}`, true);
+            xhttp.send();
+        })           
+    </script>
+</body>
+</html>

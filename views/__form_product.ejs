@@ -1,0 +1,35 @@
+<% if (typeof values != "undefined") var setted = true %>
+
+<div class="container mt-5 ">
+    <form action="/admin<% if (setted) { %>/edit/<%= values._id %><% } %>" method="POST">                   
+        <div class="form-group">
+            <label for="images">Images</label>
+            <input type="text" <% if (setted) { %> value="<%= values.image_url %>" <% } %> required="" class="form-control" name="imageUrls" id="images" aria-describedby="emailHelp" >
+            <small id="emailHelp" class="form-text text-muted">Add image url comma sepreated eg. aurl,anotherurl,lasturl</small>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" <% if (setted) { %> value="<%= values.name %>" <% } %> required="" class="form-control" id="name" name="name" >
+        </div>
+        <div class="form-group">
+            <label for="shortDescription">Short Description</label>
+            <input type="text" <% if (setted) { %> value="<%= values.shortDescription %>" <% } %> required="" class="form-control" id="shortDescription" name="shortDescription" >
+        </div>
+        <div class="form-group">
+            <label for="searchKeyWord">Search key word</label>
+            <input type="text" <% if (setted) { %> value="<%= values.searchKeyWord %>" <% } %> required="" class="form-control" id="searchKeyWord" name="searchKeyWord" aria-describedby="searchKeyWordHelp">
+            <small id="searchKeyWordHelp" class="form-text text-muted">Add search key word here, comma sepreated eg. aurl,anotherurl,lasturl</small>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label><br>
+            <textarea name="description"  style="height:250px;" required="" class="form-control" id="description" ><% if (setted) { %> <%= values.description%> <% } %></textarea>
+        </div>
+        <div class="form-group">    
+            <label for="productLinks">Product Links</label>
+            <input type="text" <% if (setted) { %> value="<%=values.productLinks[0].default%>" <% } %> required="" class="form-control" id="productLinks" name="productLinks" placeholder="eg. Amazon(s)https://url.com(c)1015,FlipKart(s)https://url.com(c)1051">
+        </div>
+        <button type="submit" class="btn btn-primary mb-5" style="float: right;" >Add</button>
+    </form>
+</div>
+
+<!-- https://images-na.ssl-images-amazon.com/images/I/81lDF673d9L._SX425_.jpg,https://images-na.ssl-images-amazon.com/images/I/81cmkaYSpBL._SX425_.jpg,https://images-na.ssl-images-amazon.com/images/I/61VwxPfljTL._SX425_.jpg,https://images-na.ssl-images-amazon.com/images/I/81clyyz-8qL._SX425_.jpg -->

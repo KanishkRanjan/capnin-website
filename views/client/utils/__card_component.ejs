@@ -1,0 +1,26 @@
+<% function cardsMaker(products){
+    products.forEach(product => {
+        %>
+        <div class="card" onclick="show('<%= product.name %>')">
+        <img src="<%= product.image_url[0] %> " alt="<%= product.shortDescription %>"/>
+        <div class="detail">    
+            <p class="title"><%= product.name %> </p>
+            <p class="information">
+                <%= product.shortDescription %> 
+            </p>
+            <div class="costShower">
+                <p class="cost" style="font-size: 14px;font-weight: 500;">Rs. <%= product.lowestCost %></p>
+                <% let maxCost = Math.max(...product.productLinks.map(obj => obj.cost),0); if (maxCost != product.lowestCost ) { %>
+                    <p class="highestCost"> Rs. <%= maxCost %> </p>
+                <% } %>
+            </div>
+            <a href="/shop/<%= product.name %>" style="display: none;" target="_blank" rel="noopener noreferrer">View now</a>
+        </div>
+    </div>
+        <%
+    });
+}
+%>
+
+<% cardsMaker(products) %>
+    

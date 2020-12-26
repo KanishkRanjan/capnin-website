@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f6f9fc;
+}
+nav {
+  display: flex;
+  /* flex-direction: ; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15%;
+  width: 100vw;
+  height: 45px;
+  background-color: #ffffff;
+  /* background-color: #333333; */
+}
+
+nav .links a {
+  padding: 10px;
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+nav .links .active {
+  color: #000000;
+}
+
+nav .logo h1 {
+  /* font-size: ; */
+  font-family: "Roboto", sans-serif;
+}
+
+.showcase {
+  width: 100vw;
+  overflow: hidden;
+  height: 90vh;
+}
+
+.showcase img {
+  width: 100%;
+}
+
+.showcase .information {
+  position: absolute;
+  top: 250px;
+  left: 200px;
+  color: #ffffff;
+  max-width: 40%;
+}
+
+.showcase .information p {
+  font-size: 62px;
+  margin: 50px 0;
+}
+
+.showcase .information a {
+  /* top: 50px; */
+  text-decoration: none;
+  padding: 20px 50px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 2.5px;
+}
+.topsellers {
+  display: flex;
+  flex-direction: column;
+  margin: 125px 0;
+}
+
+.topsellers .topsellersTitle {
+  font-size: 35px;
+  margin: 0 auto;
+}
+.slides {
+  display: flex;
+  margin: 25px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* background-color: #000000; */
+}
+
+.slides .card {
+  /* padding: 20px; */
+  /* box-shadow: #333333; */
+  background-color: #ffffff;
+  width: 280px;
+  margin: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px 5px 0 0;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  /* box-shadow: 2px 2px 2px #aaaaaa; */
+  /* background-color: #333333; */
+}
+
+.card img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  /* height: 200px; */
+}
+
+.card button {
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  border: none;
+}
+.card .detail {
+  margin: 20px;
+}
+.card .detail .feature {
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.card .detail .title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  border: none;
+  box-shadow: 0 18px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.whyToUse {
+  /* background-color: rosybrown; */
+  /* background-color: #f6f9fc; */
+  width: 80vw;
+
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.whyToUse header {
+  /* font-size: ;/ */
+  font-size: 35px;
+  color: #0a2540;
+  max-width: 50vw;
+}
+
+.whyToUse .explanation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.whyToUse .explanation img {
+  width: 35vw;
+  border-radius: 5px 0 0 5px;
+  margin-top: 50px;
+}
+.whyToUse p {
+  margin-top: 50px;
+  font-size: 18px;
+  color: #0a2540;
+  max-width: 35vw;
+}
+
+footer {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px 50px;
+}
+
+.contactUs {
+  background-color: #4d4d4d;
+  display: flex;
+}
+
+.contactUs .headding {
+  color: #ffffff;
+}
+
+.contactUs .information {
+  background-color: #000000;
+}

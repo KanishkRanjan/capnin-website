@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<% let title =  `Capnin: ${productInformation.name}`%> 
+<%- include('./utils/__head.ejs',{"title":title,"cssPath":"../css/product.css"})%>
+<%- include('./utils/__card_style.ejs') %> 
+<body >
+    <%- include("./utils/__nav.ejs") %>
+    <div class="directer">
+        <a href="/">Home</a> /
+        <a id="current"><%= productInformation.name %></a>
+    </div>
+    <main>
+        <div class="imageCollection">
+            <div class="selectImage" style="height: 500px;" >
+                <img src="<%= productInformation.image_url[0] %> " alt="<%= productInformation.shortDescription %>" style="max-height: 500px;">
+            </div>
+            <div class="imageSeleter">
+                <% productInformation.image_url.forEach((image,index) => { %>
+                    <div class="seletivelyImage" id='<%= index%>' onclick="showInLarge(this.id)" onmouseover="showInLarge(this.id)">
+                        <img src="<%= image %> " alt="A seletively  product">
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="productDescription">
+            <div class="productInformation">
+                <p class="heading"><%= productInformation.name %> </p>
+                <p class="subheading">
+                    <%= productInformation.shortDescription %> 
+                </p>
+                <div class="description">
+                    <%- productInformation.description %> 
+                </div>
+            </div>
+            <div class="productRedirector">
+                <table>
+                    <tr> 
+                        <td id="price">
+                            <p class="currentPrice">Rs. <%= productInformation.lowestCost %></p>
+                            <p class="alert-information"></p>
+                            <%  let maxCost = Math.max(...productInformation.productLinks.map(obj => obj.cost),0); %> 
+                            <% if (maxCost != productInformation.lowestCost) { %>
+                            <p class="highestPrice"> Rs. <%= maxCost %></p>
+                            <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <% productInformation.productLinks = productInformation.productLinks.sort((a,b) => (a.cost > b.cost) ? 1 : ((b.cost > a.cost) ? -1 : 0)) %>
+                            <div class="productLink">
+                                <div class="custom-select-wrapper">
+                                    <div class="custom-select">
+                                        <div class="custom-select__trigger"><span><%= productInformation.productLinks[0].website %> </span>
+                                            <div class="arrow"></div>
+                                        </div>
+                                        <div class="custom-options">
+                                            <% productInformation.productLinks.forEach((product,index) => { %>
+                                                <span class="custom-option <% if (index == 0) { %>selected<% } %>" website="<%= product.website %>" url-to-product="<%= product.link %>" product-cost="<%= product.cost %> "><%= product.website %></span>
+                                            <% }); %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><button id="buynow">Buy Now!</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <div class="mayLike">
+        <span>You may like Them</span>
+        <div class="cards">
+            <%- include('./utils/__card_component.ejs',{products:recommended}) %>
+        </div>
+    <%- include("./utils/__footer.ejs") %> 
+</body>
+<script>
+    const lowestCost = "<%= productInformation.lowestCost %>";
+    const cheaperWebsite = "<%= productInformation.productLinks[0].website %>";
+</script>
+<script src="../js/productImageController.js"></script>
+</html>

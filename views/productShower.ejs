@@ -1,0 +1,86 @@
+    
+    <div class="directer">
+        <a href="/">Home</a> /
+        <a id="current"><%= productInformation.name %></a>
+    </div>
+    <main>
+
+        <div class="imageCollection">
+            <div class="selectImage">
+                <img src="<%= productInformation.image_url[0] %>" alt="A Fucking Product">
+            </div>
+            <div class="imageSeleter">
+            <% productInformation.image_url.forEach((item,index) => { %>
+                <div class="seletivelyImage" id='<%= index%>' onclick="showInLarge(this.id)" onmouseover="showInLarge(this.id)">
+                    <img src="<%= item%>" alt="A seletively funking product" width="100px" >
+                </div>
+            <% }) %>
+            </div>
+        </div>
+        <div class="productDescription">
+            <div class="productInformation">
+                <p class="heading"><%= productInformation.name %></p>
+                <p>
+                    <%= productInformation.shortDescription %>
+                </p>
+                <br>
+                <p><%- productInformation.description %>e</p>
+                
+            </div>
+            <div class="productRedirector">
+
+                <table>
+                    <% if (cost.max != cost.min) { %>
+                        <tr>
+                            <td class="oldPrice">Rs.<%= cost.max %></td>
+                        </tr>
+                    <% } %>
+                    <tr> 
+                        <td>Rs. <%= cost.min %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="productLink">
+                               <% productInformation.productLinks.forEach(item => { %>
+                                    <%= item.website %> ,
+                               <% }) %>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button>Buy Now!</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <div class="mayLike">
+        <span>You may like Them</span>
+        <div class="cards">
+            <% recommendeds.forEach(recommeded => { %>
+                <% let min = Math.min.apply(null, recommeded.productLinks.map(item => {
+                    return item.cost;
+                }));%>
+                <div class="card">
+                    <img src="<%= recommeded.image_url[0] %>" alt="">
+                    <div class="detail">
+                        <p class="title"><%= recommeded.name %></p>
+                        <p class="information">
+                            <%= recommeded.shortDescription %>
+                        </p>
+                        <p class="cost"><%= min%></p>
+                   </div>
+                </div>
+            <% }) %>
+
+        </div>  
+    </div>
+    <footer>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    
+        <br><br>
+        &copy;2020 by Capnin.Proudly bought by Kanishk Ranjan
+    </footer>
+    <script src="../../js/productImageController.js"></script>

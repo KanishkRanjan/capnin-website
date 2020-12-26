@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./utils/__head.ejs",{
+        "title":"capnin",
+        "cssPath":"./css/new.css"
+        })  %> 
+    <%- include("./utils/__card_style.ejs")  %> 
+<body>
+    <%- include("./utils/__nav.ejs")  %> 
+    <div class="showcase">
+        <p>Capnin</p>
+        <span>Stop searching and wasting time just capnin it.</span>
+    </div>
+    
+    <div class="slider">
+        <span>New here</span>
+        <div class="cards">
+            <% if (products.length == 0) { %>
+                <div class="" style="width:100%;margin-top:50px;height:250px;text-align:center;">
+                    Sorry, something went wrong <br>
+                    try to reload
+                </div>
+            <% } else { %>
+                <%- include('./utils/__card_component.ejs') %> 
+            <% } %>
+        </div>
+        <span class="seeMore"><a href="/shop">See More</a></span>
+        <div class="controls">
+            <button class="moveLeft"><i class="fas fa-chevron-left"></i></button>
+            <button class="moveRight"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <div class="ourstory">
+        <div class="picture"></div>
+        <div class="information">
+            <h2>Our Story</h2>
+            <p>On Your Way To Save Money</p>
+            <p class="description">
+                What started off as an App to tackle one specific industry has grown into an automated and intricate
+                technology managing to make a breakthrough in the world of Online Payments. Since 2000,
+                Forbind has been making users’ lives easier by offering a wide range of products and services through its extensive platform.
+            </p>
+        </div>
+    </div>
+    <div class="feature">
+        <div class="title">
+            <h2>Some Features that Made us Unique</h2>
+        </div>
+        <div class="cardContainer">
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+            <div class="featureCard">
+                <div class="featureCardTiltle">
+                    <i class="far fa-user fa-lg"></i>
+                    <h3>A freacking person</h3>
+                </div>
+                <div class="featureCardDescription">
+                    <p>
+                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="commanQuestion">
+        <div class="title">
+            <h1>Common Queries</h1>
+
+            <h2>
+                Got Questions? We’re Here to Help.
+            </h2>
+        </div>
+ 
+        <div class="questions">
+            <div class="question">
+                <h2>
+                    How often are there updates to the App?
+                </h2>
+                <p>
+                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
+                    It all sounds great, but what does this App actually do?
+                </p>
+            </div>
+            <div class="question">
+                <h2>
+                    It all sounds great, but what does this App actually do?
+                </h2>
+                <p>
+                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
+                    I’ve seen other Apps that serve similar purposes. What makes yours the best?
+                </p>
+            </div>
+            <div class="question">
+                <h2>
+                    I’ve seen other Apps that serve similar purposes. What makes yours the best ?
+                </h2>
+                <p>
+                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="contactUs" id="contact">
+        <p>Get In Touch</p>
+        <form action="" method="post">
+            <div class="information">
+                <input type="text" name="name" id="name" placeholder="Name">
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div> 
+            <input type="text" name="subject" id="subject"  placeholder="subject"><br>
+            <textarea name="message" id="message" placeholder="Type your message here..."></textarea>       <br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <div class="divider"></div>
+    <%- include('./utils/__footer.ejs') %> 
+</body>
+<script src="./js/slider.js"></script>
+</html>

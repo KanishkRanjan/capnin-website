@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./utils/__head.ejs',{"title":"Shop all","cssPath":"./css/shopAll.css"})%>
+<%- include("./utils/__card_style.ejs")  %> 
+
+<body>
+    <%- include("./utils/__nav.ejs") %>
+    <header>
+            <p class="heading">Shop All</p>
+            <p class="sub-heading">Here you can find a fucking product</p>
+    </header>
+
+    <main>
+        <form class="filterOption">
+            <div class="heading">
+                Filter By
+            </div>
+            <div class="filters">
+                <div class="filter">
+                    <div class="sub-heading">
+                        Pricing
+                    </div> 
+                    <div class="options" >
+                        <input type="text" name="min" id="min" placeholder="Min">
+                        <input type="text" name="max" id="max" placeholder="Max">
+                    </div>
+                </div>
+
+                <input type="hidden" name="till" value="0" id="skip">
+                <input type="submit" id="filter"value="Apply">
+            </form>
+        </div>
+        <div class="products">
+            <% if (products.length === 0) { %>
+             <h1>No result found</h1>
+            <% }else{ %>
+                <%- include('./utils/__card_component.ejs') %>
+            <% } %>
+        </div>
+    </main>
+    <script>
+        let search = "search=<%= search %>";
+    </script>
+<% if (products.length > 20) { %>
+<script> 
+    var scrolled = 20;
+    window.onscroll = function(ev) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {                       
+            scrolled+= 20;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let response = JSON.parse(this.response);
+                    if(response.products.lenght !=0)response.products.forEach(product => {
+                        let add = ""
+                        let maxCost = Math.max(...product.productLinks.map(obj => obj.cost),0); 
+                        if (maxCost != product.lowestCost ) add = `<p class="highestCost"> Rs.  ${maxCost} </p>`
+                        document.querySelector(".products").innerHTML += 
+                        `<div class="card" onclick="show('${product.name}')">
+                                    <img src="${product.image_url[0]}" alt="${product.shortDescription}">
+                                    <div class="detail">
+                                    <p class="title">${ product.name } </p>
+                                    <p class="information">
+                                        ${ product.shortDescription } 
+                                    </p>
+                                    <div class="costShower">
+                                        <p class="cost" style="font-size: 14px;font-weight: 500;">Rs. ${product.lowestCost }</p>${add}
+                                    </div>
+                                </div>
+                                </div>`;
+                        });
+                }
+            };
+            xhttp.open("POST", `/shop?till=${scrolled}&${search}`, true);
+            xhttp.send();
+        }
+    }
+</script>
+<% } %>
+<%- include("./utils/__footer.ejs") %> 
+</body>
+<script src="./js/shop.js"></script>
+</html>
