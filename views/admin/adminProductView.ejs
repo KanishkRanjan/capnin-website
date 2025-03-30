@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" crossorigin="anonymous" />
-<% if (typeof productInformation == "undefined"){ %>
-    <title>Invalide Product Name Give in Link</title>   
-<% } else {%>
-    <title><%= productInformation.name %></title>
-<%}%>
-    <link rel="stylesheet" href="../../css/product.css">
-</head>
-<body>
-
-    <% if (typeof productInformation != "undefined"){ %>
-        <div class="adminControl">
-            <a href="/admin/delete/<%= productInformation._id%>" style="  background-color: red;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 50px 25px;
-            ">Delete</a>
-            <p></p>
-            <a  href="/admin/edit/<%= productInformation.name%>" style="background-color: blueviolet;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 50px 25px;
-            ">Edit</a>
-        </div>
-    <% } %>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
     <% if (typeof productInformation == "undefined"){ %>
-        <%- include('../notFound.ejs')%>
+    <title>Invalide Product Name Give in Link</title>
     <% } else {%>
-        <%- include('../productShower.ejs')%>
+    <title><%= productInformation.name %></title>
     <%}%>
-</body>
+    <link rel="stylesheet" href="../../css/product.css" />
+  </head>
+  <body>
+    <% if (typeof productInformation != "undefined"){ %>
+    <div class="adminControl">
+      <a
+        href="/admin/delete/<%= productInformation._id%>"
+        style="
+          background-color: red;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 50px 25px;
+        "
+        >Delete</a
+      >
+      <p></p>
+      <a
+        href="/admin/edit/<%= productInformation.name%>"
+        style="
+          background-color: blueviolet;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 50px 25px;
+        "
+        >Edit</a
+      >
+    </div>
+    <% } %> <% if (typeof productInformation == "undefined"){ %> <%-
+    include('../notFound.ejs')%> <% } else {%> <%-
+    include('../productShower.ejs')%> <%}%>
+  </body>
 </html>

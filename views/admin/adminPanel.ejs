@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Panel</title>
-    <%- include('../__bootstrap.ejs') %> 
-</head>
-    <body>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Capnin Admin</h1>
-          <p class="lead">It's admin panel ur monst welcome hacker to this website, ruin it.</p>
-        </div>
+    <%- include('../__bootstrap.ejs') %>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Capnin Admin</h1>
+        <p class="lead">
+          It's admin panel ur monst welcome hacker to this website, ruin it.
+        </p>
       </div>
+    </div>
     <div class="container">
-
-      <% if (typeof msg != "undefined") { %>
-        <% if (msg) { %>  
-          <div class="alert alert-danger" role="alert">
-            <%= msg%>
-          </div>
-        <% } else { %>
-          <div class="alert alert-success" role="alert">
-            Data was entered successfuly
-          </div>
-        <% } %>
-      <% } %>
-      <div class="Xafadf" style="display: flex;">
-        <div class="option-container" style="padding-top: 50px;padding-right: 20px;">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Add Prodyct</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">click here to add some product</h6>
-                  <a href="/admin/add" class="card-link">Click here</a>
-                </div>
+      <% if (typeof msg != "undefined") { %> <% if (msg) { %>
+      <div class="alert alert-danger" role="alert"><%= msg%></div>
+      <% } else { %>
+      <div class="alert alert-success" role="alert">
+        Data was entered successfuly
+      </div>
+      <% } %> <% } %>
+      <div class="Xafadf" style="display: flex">
+        <div
+          class="option-container"
+          style="padding-top: 50px; padding-right: 20px"
+        >
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Add Prodyct</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                click here to add some product
+              </h6>
+              <a href="/admin/add" class="card-link">Click here</a>
             </div>
+          </div>
         </div>
-        <div class="option-container" style="padding-top: 50px;padding-right: 20px;">
-          <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Find Prodyct</h5>
-                <h6 class="card-subtitle mb-2 text-muted">You can here edit remove your data </h6>
-                <a href="/admin/view" class="card-link">Click here</a>
-              </div>
+        <div
+          class="option-container"
+          style="padding-top: 50px; padding-right: 20px"
+        >
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Find Prodyct</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                You can here edit remove your data
+              </h6>
+              <a href="/admin/view" class="card-link">Click here</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</body>
+  </body>
 </html>
