@@ -58,6 +58,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 For inquiries or feedback, please contact [Kanishk Ranjan](mailto:kanishkranjan17@gmail.com).
 ```
-
-
-You can copy and paste the above content into your `README.md` file. For more information on Markdown syntax, refer to this [Markdown Guide](https://www.markdownguide.org/basic-syntax/). 
