@@ -5,13 +5,14 @@
 <%- include('./utils/__card_style.ejs') %> 
 <body >
     <%- include("./utils/__nav.ejs") %>
-    <div class="directer">
-        <a href="/">Home</a> /
-        <a id="current"><%= productInformation.name %></a>
-    </div>
-    <main>
-        <div class="imageCollection">
-            <div class="selectImage" style="height: 500px;" >
+    <div class="product-page-wrapper">
+        <div class="product-breadcrumbs">
+            <a href="/">HOME</a> /
+            <span id="current"><%= productInformation.name.toUpperCase() %></span>
+        </div>
+        <main class="product-main-grid">
+            <div class="imageCollection">
+                <div class="selectImage" style="height: 500px;" >
                 <img src="<%= productInformation.image_url[0] %> " alt="<%= productInformation.shortDescription %>" style="max-height: 500px;">
             </div>
             <div class="imageSeleter">
@@ -24,13 +25,10 @@
         </div>
         <div class="productDescription">
             <div class="productInformation">
-                <p class="heading"><%= productInformation.name %> </p>
+                <h1 class="heading"><%= productInformation.name %> </h1>
                 <p class="subheading">
                     <%= productInformation.shortDescription %> 
                 </p>
-                <div class="description">
-                    <%- productInformation.description %> 
-                </div>
             </div>
             <div class="productRedirector">
                 <table>
@@ -66,17 +64,30 @@
                     </tr>
                     
                     <tr>
-                        <td><button id="buynow">Buy Now!</button></td>
+                    <tr>
+                        <td><button id="buynow" class="btn-submit">Buy Now</button></td>
                     </tr>
                 </table>
             </div>
         </div>
-    </main>
-    <div class="mayLike">
-        <span>You may like Them</span>
-        <div class="cards">
-            <%- include('./utils/__card_component.ejs',{products:recommended}) %>
-        </div>
+        </main>
+        
+        <section class="product-detailed-description">
+            <div class="description-container">
+                <h3 class="description-heading">DESCRIPTION</h3>
+                <div class="description-content">
+                    <%- productInformation.description %> 
+                </div>
+            </div>
+        </section>
+
+        <section class="mayLike">
+            <h3 class="recommended-heading">YOU WILL ALSO BE INTERESTED</h3>
+            <div class="product-grid recommended-grid">
+                <%- include('./utils/__card_component.ejs',{products:recommended}) %>
+            </div>
+        </section>
+    </div>
     <%- include("./utils/__footer.ejs") %> 
 </body>
 <script>

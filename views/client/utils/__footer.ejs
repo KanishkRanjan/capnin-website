@@ -1,21 +1,215 @@
-<footer>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-    <br><br>
-    &copy;2020 by Capnin.Proudly bought by Kanishk Ranjan
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-left">
+            <h2 class="footer-heading">GET UPDATES ON FUN<br>STUFF YOU PROBABLY<br>WANT TO KNOW ABOUT<br>IN YOUR INBOX.</h2>
+            <form class="newsletter-form" action="#" method="POST">
+                <input type="email" placeholder="Email address" required>
+                <button type="submit" aria-label="Subscribe">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+        <div class="footer-right">
+            <div class="footer-col">
+                <h3 class="footer-col-title">Menu</h3>
+                <ul class="footer-links">
+                    <li><a href="/shop">Shop All</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#"><i>(Vibes)</i></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-col-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Help & FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-socials">
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2024 by Capnin. Proudly brought by Kanishk Ranjan.</p>
+    </div>
 </footer>
 
 <style>
-    footer {
+/* 
+ * Footer Styles 
+ * Off-white background matching the reference and project style
+ */
+.site-footer {
+    background-color: #f4f4f0;
+    color: #111111;
+    padding: 80px 5% 40px;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+/* LEFT SIDE: Newsletter */
+.footer-left {
+    max-width: 500px;
+}
+
+.footer-heading {
+    font-family: "Quicksand", serif; /* Fallback to standard serif if Quicksand isn't loaded correctly, to give that elegant look */
+    font-size: 38px;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dcdcd5;
+    padding-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-form:focus-within {
+    border-color: #111111;
+}
+
+.newsletter-form input {
+    background: transparent;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-family: inherit;
+    font-size: 14px;
+    color: #111111;
+}
+
+.newsletter-form input::placeholder {
+    color: #777777;
+}
+
+.newsletter-form button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #111111;
+    font-size: 16px;
+    padding: 0 5px;
+    transition: transform 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    transform: translateX(3px);
+}
+
+/* RIGHT SIDE: Links */
+.footer-right {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111111;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #111111;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.6;
+}
+
+/* BOTTOM BAR: Copyright & Socials */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #e8e8e3;
+}
+
+.footer-socials a {
+    color: #111111;
+    font-size: 18px;
+    margin-right: 20px;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    opacity: 0.6;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .footer-left {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-right {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-heading {
+        font-size: 28px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
         text-align: center;
-        padding: 35px 0 50px 0;
     }
-
-    footer a {
-        font-size: 15px;
-        color: #000000;
-        margin: 0 5px;
+    
+    .footer-socials a {
+        margin: 0 10px;
     }
-
+}
 </style>

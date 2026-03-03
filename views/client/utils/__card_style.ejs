@@ -1,47 +1,172 @@
 <style>
 .card {
-    background-color: #ffffff;
     width: 280px;
     min-width: 280px;
-    margin: 25px 0;
-    border-radius: 5px 5px 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .card img {
-    margin-top: 15px;
-    max-width: 100%;
-    max-height: 270px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px 5px 0 0;
-  }
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: transform 0.3s ease;
+}
 
-  .card .detail {
-    margin: 20px;
-  }
-  .card .detail .information {
-    margin-bottom: 10px;
-    max-width: 240px;
-    font-size: 14px;
-    color: #535353;
-    word-wrap: break-word;
-  }
-  .card .detail .costShower{
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: #f4f5f7; /* Light gray box from reference */
     display: flex;
-  }
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
 
-  .card .detail .highestCost{
-    color: #7e818c;
+.card-image-wrapper img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.badge.sale {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #d84a28; /* Rust/Orange from reference */
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 2;
+}
+
+.hover-actions {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.card:hover .hover-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.action-icon {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4a4a5a;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+}
+
+.action-icon:hover {
+    background-color: #1a1a24;
+    color: white;
+}
+
+.card-details {
+    padding: 0 5px;
+    text-align: left;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a4a5a;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Take full width since heart is gone */
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.product-rating i {
+    color: #f3b140; /* Yellow star color */
+    font-size: 10px;
+}
+
+.product-pricing {
+    padding: 0;
+    line-height: 1; /* Force tight height */
+    
+}
+
+.price-block {
+    display: flex; /* Switch from flex to block for tighter control */
+    align-items: center;
+    font-size: 14px;
+}
+
+.current-price-block {
+    color: #1a1a24;
+}
+
+.current-price-block .currency {
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.current-price-block .amount {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.old-price-block {
+    color: #d84a28;
     text-decoration: line-through;
+    opacity: 0.9;
+    margin-bottom: 5px; /* Added more gap to prevent touching */
+}
+
+.old-price-block .currency {
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+.old-price-block .amount {
     font-size: 12px;
-    margin-left: 2px;
-  }
-  
-  .card .detail .title {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+    font-weight: 600;
+}
 </style>  

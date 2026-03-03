@@ -1,198 +1,140 @@
 <nav>
-    <div class="linksMoblie">
-        <i class="fas fa-bars"></i>
-    </div>
     <div class="logo">
-        <a href="/">Capnin</a> 
+        <a href="/"><i class="fas fa-asterisk"></i> Capnin</a> 
     </div>
     <div class="links">
         <a href="/">Home</a>
         <a href="/shop">Shop All</a>
-        <a href="/#contact">Contact</a>
+        <a href="/#contact">Contact Us</a>
     </div>
-
-   
-    <div class="search-bar">
-        <div class="search-icon" id="toggler"><span class="fas fa-search"></span></div>
-        <div class="cancel-icon" id="toggler"><span class="fas fa-times"></span></div>
-        <form action="/shop" method="get" class="">
-            <input type="search" name="search" id="search" placeholder="search" class="search-data">
-            <button type="submit" class="fas fa-search"></button>
-        </form>
+    <div class="nav-actions">
+        <a href="/shop" class="btn-primary">Shop Now</a>
+    </div>
+    <div class="linksMoblie">
+        <i class="fas fa-bars"></i>
     </div>
 </nav>
 <script>
-    const searchIcon  = document.querySelector(".search-icon");
-    const cancelIcon = document.querySelector(".cancel-icon");
-    const toggler = document.querySelectorAll("#toggler");
     const bars = document.querySelector(".linksMoblie");
-    
     bars.addEventListener("click",()=>{
         document.querySelector("nav").querySelector(".links").classList.toggle('active-links');
-    })
-
-    toggler.forEach(function(elem){
-        elem.addEventListener("click",()=>{
-            document.querySelector("nav").querySelector("form").classList.toggle('active');
-            searchIcon.style.display = searchIcon.style.display === 'none' ? 'block' : 'none';
-            cancelIcon.style.display = cancelIcon.style.display === 'block' ? 'none' : 'block';
-        });
     });
 </script>
 <style>
 
 
     nav {
-        height: 50px;
+        height: 70px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
-        padding: 0 80px;
-        color: #ffffff;
+        padding: 0 5%;
+        background: #f5f6f8; /* Soft off-white like BloomFi */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        font-family: "Outfit", sans-serif;
     }
 
-    nav .logo a{
-        font-size: 25px;
-        color: #333333;
-        text-decoration: none;
-        margin: 0 auto;
+    nav .logo {
+        flex: 1;
+        display: flex;
+        align-items: center;
     }
+
+    nav .logo a {
+        font-size: 20px;
+        color: #1a1a24;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav .logo a i {
+        font-size: 22px;
+        color: #1e1e2d;
+    }
+
     nav .links {
-        text-align: center;
-        font-size: 14px;
-        color: #333333;
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
   
     nav .links a {
         text-decoration: none;
-        color: #000000;
-        padding: 0 15px;   
-  font-family: "Roboto", serif;
-
-    }
-    nav .search-bar{
-        flex-grow: 2;
-    }
-    nav form{
-        width: 250px;
-        display: flex;
-        margin-left: auto;
-        height: 40px;
-        min-width: 18%!important;
-    }
-    nav form .search-data{
-        height: 100%;
-        width: 100%;
-        padding:0 10px ;
-        background: #ffffff;
+        color: #4a4a5a;
+        padding: 0 20px;   
         font-weight: 500;
-        font-size: 17px;
-        border: 1px solid #333333;
-        border-radius: 2px 0 0 2px;
+        font-size: 15px;
+        transition: color 0.2s ease;
     }
-    nav form button{
-        padding: 0 15px;
-        background: #333333;
-        border: none;
-        cursor: pointer;
+    
+    nav .links a:hover {
+        color: #1a1a24;
+    }
+    
+    nav .nav-actions {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    nav .btn-primary {
+        background-color: #272635; /* Dark pill background */
         color: #ffffff;
-        border-radius: 0 0 2px  2px;
-
+        text-decoration: none;
+        padding: 10px 24px;
+        border-radius: 50px; /* Pill shape */
+        font-weight: 500;
+        font-size: 14px;
+        transition: opacity 0.2s ease;
     }
-    nav .linksMoblie,
-    nav .search-icon,
-    nav .cancel-icon{
-        width: 40px;
-        color: #1e232d;
-        text-align: center;
-        font-size: 18px;
+
+    nav .btn-primary:hover {
+        opacity: 0.9;
+    }
+
+    nav .linksMoblie {
+        color: #1a1a24;
+        font-size: 20px;
         cursor: pointer;
         display: none;
-        margin-left:auto;
-    }
-    nav .linksMoblie{
-        display: none;
-    }
-    nav .logo,
-    nav .search-bar{
-        z-index: 100;
-    }
-    @media (min-width: 980px) {
-        nav .linksMoblie,
-        nav .search-icon,
-        nav .cancel-icon{
-            display: none !important;
-        }
     }
 
-    @media (max-width: 980px) {
-        nav form{
+    @media (max-width: 760px) {
+        nav .links {
             display: none;
         }
-        nav form.active{
-            display: flex;
-        }
-        nav form .search-data{
-            background: none;
-            border: none;
-            border: 1px solid rgba(155, 155, 155, 0.2);
-            color: #f6f9fc;
-        }
-        nav form button{
-            background: #ff3d00;
-        }
-
-
-        nav form{
-            position: absolute;
-            top: 55px;
-            left: 0; 
-            right: 0; 
-            margin-left: auto; 
-            margin-right: auto;
-            background: #1e232b;
-            padding: 12px; 
-            height: 67px;
-            width: 90%;
-        }
-        nav .search-icon{
-            display: block;
-        }
-    }
-    @media(max-width:760px) {
-        nav {
-            padding: 0 2px;
-        }
-        nav .logo{
-            flex-grow: 2;
-        }
-        nav .links{
-            position: absolute;
-            top: -100%;
-        }
-        nav .links a{
-            display: none;
-        }
-
         nav .links.active-links {
-            transition: all 0.5s ease;
             position: absolute;
-            width: 100%;
-            height: 175px;
-            top: 50px;
+            top: 70px;
             left: 0;
-            background-color: #f6f9fc;
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
             display: flex;
             flex-direction: column;
+            padding: 20px 0;
+            gap: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
         }
-        nav .links.active-links a{
-            margin-top: 25px;
+        nav .links.active-links a {
+            padding: 10px 0;
+        }
+        nav .nav-actions {
+            display: none;
+        }
+        nav .linksMoblie {
             display: block;
         }
-
-        nav .linksMoblie{
-            display: block;
+        nav .logo {
+            flex-grow: 1;
         }
-
     }
 </style>

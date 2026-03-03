@@ -2,28 +2,20 @@
 <html lang="en">
 <head>
     <%- include("./client/utils/__head.ejs",{
-        "title":"404 not found",
+        "title":"404 - Page Not Found",
         "cssPath":"./css/page404.css"
         })  %> 
-    <meta name="description" content="Page not found on capnin">
-    <meta name="author" content="Kanishk Ranjan"></meta>
 </head>
 <body>
     <%- include("./client/utils/__nav.ejs")  %> 
-    <div class="container">
-        <div class="header">
-            <h1>4
-                <span></span>
-                4
-            </h1>
-        </div>
-        <div class="information">
-            Sorry the page you are looking does not exist,have been removed,name changed,temporarily unavailable or the link is invalide
-            
-        </div>
-        <div class="homeIcon">
-            <a href="/">back to homepage</a>
-        </div>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Page Not Found</h2>
+        <p class="error-desc">
+            Sorry, the page you are looking for doesn't exist, has been removed, had its name changed, or is temporarily unavailable.
+        </p>
+        <a href="/" class="btn-home">Return to Homepage</a>
     </div>
+    <%- include("./client/utils/__footer.ejs") %>
 </body>
 </html>

@@ -1,22 +1,48 @@
 <% function cardsMaker(products){
     products.forEach(product => {
+        let maxCost = Math.max(...product.productLinks.map(obj => obj.cost),0);
+        let isOnSale = maxCost > product.lowestCost;
         %>
         <div class="card" onclick="show('<%= product.name %>')">
-        <img src="<%= product.image_url[0] %> " alt="<%= product.shortDescription %>"/>
-        <div class="detail">    
-            <p class="title"><%= product.name %> </p>
-            <p class="information">
-                <%= product.shortDescription %> 
-            </p>
-            <div class="costShower">
-                <p class="cost" style="font-size: 14px;font-weight: 500;">Rs. <%= product.lowestCost %></p>
-                <% let maxCost = Math.max(...product.productLinks.map(obj => obj.cost),0); if (maxCost != product.lowestCost ) { %>
-                    <p class="highestCost"> Rs. <%= maxCost %> </p>
+            <div class="card-image-wrapper">
+                <% if(isOnSale) { %>
+                    <span class="badge sale">Sale</span>
                 <% } %>
+                <img src="<%= product.image_url[0] %> " alt="<%= product.name %>"/>
+                
+                <div class="hover-actions">
+                    <button class="action-icon" title="Add to cart"><i class="fas fa-plus"></i></button>
+                    <button class="action-icon" title="Quick view"><i class="far fa-eye"></i></button>
+                </div>
             </div>
-            <a href="/shop/<%= product.name %>" style="display: none;" target="_blank" rel="noopener noreferrer">View now</a>
+            
+            <div class="card-details">    
+                <div class="title-row">
+                    <h3 class="product-title"><%= product.name %></h3>
+                </div>
+                
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+
+                <div class="product-pricing">
+                    <% if (isOnSale) { %>
+                        <div class="price-block old-price-block">
+                            <span class="currency">Rs.</span>
+                            <span class="amount"><%= maxCost %></span>
+                        </div>
+                    <% } %>
+                    <div class="price-block current-price-block">
+                        <span class="currency">Rs.</span>
+                        <span class="amount"><%= product.lowestCost %></span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
         <%
     });
 }

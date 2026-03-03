@@ -5,38 +5,45 @@
 
 <body>
     <%- include("./utils/__nav.ejs") %>
-    <header>
-            <p class="heading">Shop All</p>
-            <p class="sub-heading">Here you can find a fucking product</p>
+    <header class="page-header">
+        <div class="shop-container">
+            <h1 class="page-title">Shop All</h1>
+            <p class="page-subtitle">Find the best deals across all products.</p>
+        </div>
     </header>
 
-    <main>
-        <form class="filterOption">
-            <div class="heading">
-                Filter By
-            </div>
-            <div class="filters">
-                <div class="filter">
-                    <div class="sub-heading">
-                        Pricing
-                    </div> 
-                    <div class="options" >
-                        <input type="text" name="min" id="min" placeholder="Min">
-                        <input type="text" name="max" id="max" placeholder="Max">
-                    </div>
+    <main class="shop-container">
+        <aside class="sidebar-filter">
+            <form class="filterOption">
+                <div class="filter-heading">
+                    Filter By
                 </div>
+                <div class="filters">
+                    <div class="filter">
+                        <div class="filter-sub-heading">
+                            Pricing
+                        </div> 
+                        <div class="options">
+                            <input type="text" name="min" id="min" placeholder="Min">
+                            <input type="text" name="max" id="max" placeholder="Max">
+                        </div>
+                    </div>
 
-                <input type="hidden" name="till" value="0" id="skip">
-                <input type="submit" id="filter"value="Apply">
+                    <input type="hidden" name="till" value="0" id="skip">
+                    <button type="submit" id="filter" class="btn-submit">Apply</button>
+                </div>
             </form>
-        </div>
-        <div class="products">
-            <% if (products.length === 0) { %>
-             <h1>No result found</h1>
-            <% }else{ %>
-                <%- include('./utils/__card_component.ejs') %>
-            <% } %>
-        </div>
+        </aside>
+
+        <section class="products-area">
+            <div class="product-grid">
+                <% if (products.length === 0) { %>
+                    <h2 class="no-results" style="grid-column: 1/-1; text-align: center; margin-top: 50px;">No results found</h2>
+                <% } else { %>
+                    <%- include('./utils/__card_component.ejs') %>
+                <% } %>
+            </div>
+        </section>
     </main>
     <script>
         let search = "search=<%= search %>";
@@ -54,8 +61,8 @@
                     if(response.products.lenght !=0)response.products.forEach(product => {
                         let add = ""
                         let maxCost = Math.max(...product.productLinks.map(obj => obj.cost),0); 
-                        if (maxCost != product.lowestCost ) add = `<p class="highestCost"> Rs.  ${maxCost} </p>`
-                        document.querySelector(".products").innerHTML += 
+                        if (maxCost != product.lowestCost ) add = `<p class="highestCost" style="text-decoration: line-through; opacity: 0.8; font-size:12px;"> Rs.  ${maxCost} </p>`
+                        document.querySelector(".product-grid").innerHTML += 
                         `<div class="card" onclick="show('${product.name}')">
                                     <img src="${product.image_url[0]}" alt="${product.shortDescription}">
                                     <div class="detail">

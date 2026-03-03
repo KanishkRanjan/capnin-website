@@ -8,165 +8,209 @@
 <body>
     <%- include("./utils/__nav.ejs")  %> 
     <div class="showcase">
-        <p>Capnin</p>
-        <span>Stop searching and wasting time just capnin it.</span>
+        <div class="showcase-content">
+            <h1>CloudeyStyles.</h1>
+            <div class="subtitle-wrap">
+                <i class="fas fa-arrow-down" style="transform: rotate(-45deg);"></i>
+                <span>Discover our wide ranging and timeless of lifestyle products. Pick your favourite stuff that matches your personal taste, style and suits your style.</span>
+            </div>
+        </div>
+        
+        <div class="showcase-controls">
+            <button class="ctrl-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="ctrl-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="showcase-bottom">
+            <div class="action-buttons">
+                <a href="/shop" class="btn-shopping">Start shopping</a>
+                <a href="/shop" class="btn-arrow"><i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i></a>
+            </div>
+            <p class="collection-text">Top Collection</p>
+        </div>
     </div>
     
-    <div class="slider">
-        <span>New here</span>
-        <div class="cards">
-            <% if (products.length == 0) { %>
-                <div class="" style="width:100%;margin-top:50px;height:250px;text-align:center;">
-                    Sorry, something went wrong <br>
-                    try to reload
-                </div>
-            <% } else { %>
-                <%- include('./utils/__card_component.ejs') %> 
-            <% } %>
-        </div>
-        <span class="seeMore"><a href="/shop">See More</a></span>
-        <div class="controls">
-            <button class="moveLeft"><i class="fas fa-chevron-left"></i></button>
-            <button class="moveRight"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-    <div class="ourstory">
-        <div class="picture"></div>
-        <div class="information">
-            <h2>Our Story</h2>
-            <p>On Your Way To Save Money</p>
-            <p class="description">
-                What started off as an App to tackle one specific industry has grown into an automated and intricate
-                technology managing to make a breakthrough in the world of Online Payments. Since 2000,
-                Forbind has been making users’ lives easier by offering a wide range of products and services through its extensive platform.
-            </p>
-        </div>
-    </div>
-    <div class="feature">
-        <div class="title">
-            <h2>Some Features that Made us Unique</h2>
-        </div>
-        <div class="cardContainer">
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
+    <div class="product-grid-section">
+        <div class="product-grid-container">
+            <h2 class="product-grid-title">New here</h2>
+            <div class="product-grid">
+                <% if (products.length == 0) { %>
+                    <div style="width:100%;margin-top:50px;height:250px;text-align:center;grid-column:1/-1;">
+                        Sorry, something went wrong <br>
+                        try to reload
+                    </div>
+                <% } else { %>
+                    <%- include('./utils/__card_component.ejs') %> 
+                <% } %>
             </div>
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="featureCard">
-                <div class="featureCardTiltle">
-                    <i class="far fa-user fa-lg"></i>
-                    <h3>A freacking person</h3>
-                </div>
-                <div class="featureCardDescription">
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="/shop" class="btn-submit" style="display: inline-block; width: auto; text-decoration: none;">See More</a>
             </div>
         </div>
     </div>
-    <div class="commanQuestion">
-        <div class="title">
-            <h1>Common Queries</h1>
+    <div class="testimonials-bento">
+        <div class="t-bento-grid">
+            
+            <div class="t-bento-card t-hero-card">
+                <h2>What our<br>customers<br>say</h2>
+            </div>
 
-            <h2>
-                Got Questions? We’re Here to Help.
-            </h2>
+            <div class="t-bento-card t-review-card">
+                <p class="t-review-text">"I used to spend hours opening dozens of tabs just to make sure I wasn't getting ripped off. This platform completely changed my shopping experience by instantly comparing prices across every major e-commerce store. I easily saved Rs. 2,500 on my new headphones alone. Highly recommended!"</p>
+                <div class="t-reviewer-details">
+                    <span class="t-reviewer-name">Rohan Sharma</span>
+                    <div class="t-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-bento-card t-review-card">
+                <p class="t-review-text">"The ultimate deal-finder. It seamlessly aggregates data from Amazon, Flipkart, Myntra, and more into one clean interface. It showed me a hidden sale on a laptop I was desperately looking for, pointing me exactly to where it was cheapest. It's now my daily driver for any online purchase."</p>
+                <div class="t-reviewer-details">
+                    <span class="t-reviewer-name">Priya Patel</span>
+                    <div class="t-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-bento-card t-review-card">
+                <p class="t-review-text">"I was skeptical at first, but the accuracy of the price comparisons here is incredible. It tracks historical pricing and instantly compares current offers side-by-side. It takes all the guesswork and stress out of online shopping. If you aren't using this before you buy, you are definitely losing money."</p>
+                <div class="t-reviewer-details">
+                    <span class="t-reviewer-name">Vikram Singh</span>
+                    <div class="t-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
         </div>
- 
-        <div class="questions">
-            <div class="question">
-                <h2>
-                    How often are there updates to the App?
-                </h2>
-                <p>
-                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
-                    It all sounds great, but what does this App actually do?
-                </p>
-            </div>
-            <div class="question">
-                <h2>
-                    It all sounds great, but what does this App actually do?
-                </h2>
-                <p>
-                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
-                    I’ve seen other Apps that serve similar purposes. What makes yours the best?
-                </p>
-            </div>
-            <div class="question">
-                <h2>
-                    I’ve seen other Apps that serve similar purposes. What makes yours the best ?
-                </h2>
-                <p>
-                    Enter the Answer to your Question here. Be thoughtful with your answer, write clearly, and consider adding examples. This can help your visitors get the help they need quickly and easily.
-                </p>
+    </div>
+    <div class="services-section">
+        <div class="services-container">
+            <h2 class="services-title">Services</h2>
+            
+            <div class="services-grid">
+                
+                <div class="s-card s-card-dark">
+                    <span class="s-number">01</span>
+                    <div class="s-content">
+                        <h3>Price<br>Analysis</h3>
+                        <p>Our algorithms track historical pricing data across all major platforms, empowering you to know exactly when a "deal" is simply a marketing gimmick or a genuine steal.</p>
+                    </div>
+                </div>
+
+                <div class="s-card s-card-light">
+                    <span class="s-number">02</span>
+                    <div class="s-content">
+                        <h3>Instant<br>Alerts</h3>
+                        <p>Set personalized price thresholds for any product. We instantly notify you via email or push notification the moment the price drops to match your target, ensuring you never miss out.</p>
+                    </div>
+                </div>
+
+                <div class="s-card s-card-light">
+                    <span class="s-number">03</span>
+                    <div class="s-content">
+                        <h3>Vendor<br>Verification</h3>
+                        <p>We automatically cross-reference seller ratings and authentic buyer reviews, filtering out unreliable third-party dropshippers so you only purchase from trusted, verified sources.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="contactUs" id="contact">
-        <p>Get In Touch</p>
-        <form action="" method="post">
-            <div class="information">
-                <input type="text" name="name" id="name" placeholder="Name">
-                <input type="email" name="email" id="email" placeholder="Email">
-            </div> 
-            <input type="text" name="subject" id="subject"  placeholder="subject"><br>
-            <textarea name="message" id="message" placeholder="Type your message here..."></textarea>       <br>
-            <input type="submit" value="Send">
-        </form>
+    <div class="faq-section">
+        <div class="faq-container">
+            <span class="faq-overline">TRUSTED BY</span>
+            <h2 class="faq-title">Frequently<br>Asked Questions</h2>
+            
+            <div class="faq-accordion">
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        How often are there updates to the App?
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>We roll out minor updates and bug fixes every two weeks to ensure optimal performance. Major feature releases, driven by user feedback and market trends, are typically scheduled every quarter. You will always be notified in-app before a major update.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        It all sounds great, but what does this App actually do?
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Our app aggregates pricing data from dozens of leading e-commerce platforms. It allows you to search for any product, instantly see where it's sold cheapest, view its historical price chart to verify the "deal", and set custom price drop alerts.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        I've seen other Apps that serve similar purposes. What makes yours the best?
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Accuracy, speed, and our proprietary Vendor Verification. While others just scrape prices, we filter out unreliable third-party sellers. We also update our prices in near real-time, whereas competitors often show stale data that leads to frustration at checkout.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+    <div class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="contact-title">Get in touch</h2>
+                
+                <div class="info-block">
+                    <span class="info-label">Email:</span>
+                    <span class="info-text">kanishkranjan17@gmail.com</span>
+                </div>
+                
+                <div class="info-block">
+                    <span class="info-label">Phone:</span>
+                    <span class="info-text">+91 9229129546</span>
+                </div>
+                
+                <div class="info-block">
+                    <span class="info-label">Address:</span>
+                    <span class="info-text">REVELL ORCHID, Porwal Rd, Lohegaon, Pune, Maharashtra, India</span>
+                </div>
+
+                <div class="contact-socials">
+                    <span class="info-label">Follow us</span>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form action="" method="post" class="modern-contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" id="email" placeholder="Your email address">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="Write something..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="divider"></div>
     <%- include('./utils/__footer.ejs') %> 
 </body>
-<script src="./js/slider.js"></script>
 </html>
