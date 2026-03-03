@@ -57,4 +57,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For inquiries or feedback, please contact [Kanishk Ranjan](mailto:kanishkranjan17@gmail.com).
-```
