@@ -1,22 +1,26 @@
 const cardsContainer = document.querySelector('.cards');
+const moveLeft = document.querySelector(".moveLeft");
+const moveRight = document.querySelector(".moveRight");
 
-document.querySelector(".moveLeft").addEventListener("click", () => {
-    // Assuming a card width + gap is roughly 300px, scroll by that amount
-    cardsContainer.scrollBy({
-        left: -330, // Adjust this amount based on card width
-        behavior: 'smooth'
+if (cardsContainer && moveLeft && moveRight) {
+    moveLeft.addEventListener("click", () => {
+        cardsContainer.scrollBy({
+            left: -330,
+            behavior: 'smooth'
+        });
     });
-});
 
-document.querySelector(".moveRight").addEventListener("click", () => {
-    cardsContainer.scrollBy({
-        left: 330, // Adjust this amount based on card width
-        behavior: 'smooth'
+    moveRight.addEventListener("click", () => {
+        cardsContainer.scrollBy({
+            left: 330,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 function show(name){
-    document.location = `/shop/${name}`;
+    // Using encodeURIComponent to handle special characters in product names
+    document.location = `/shop/${encodeURIComponent(name)}`;
 }
 
 // Hero Slider functionality

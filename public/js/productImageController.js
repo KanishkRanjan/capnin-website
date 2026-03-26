@@ -17,7 +17,7 @@ function showInLarge(id){
 
 
 function show(name){
-    document.location = `/shop/${name}`;
+    document.location = `/shop/${encodeURIComponent(name)}`;
 }
 
 window.addEventListener('load', function(){

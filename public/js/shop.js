@@ -4,7 +4,7 @@ const filterForm = document.querySelector(".filterOption");
 const cards = document.querySelectorAll(".card");
 
 function show(name){
-    document.location = `/shop/${name}`;
+    document.location = `/shop/${encodeURIComponent(name)}`;
 }
 
 filterForm.addEventListener("submit", e =>{
